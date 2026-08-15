@@ -1,2 +1,2 @@
-# web-test
+# Randomizer-test
 https://dirgaditya.github.io/web-test/
