@@ -1,1 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pengundian OSIS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-field" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark"></span>
+    <div class="brand-text">
+      <span class="brand-title">Pengundian OSIS</span>
+      <span class="brand-sub">Urutan tampil &amp; pairing kelas</span>
+    </div>
+  </div>
+  <button class="btn-ghost" id="toggleSetup" aria-expanded="false" aria-controls="setupPanel">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1v3M8 12v3M3.5 3.5l2 2M10.5 10.5l2 2M1 8h3M12 8h3M3.5 12.5l2-2M10.5 5.5l2-2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    Daftar Kelas
+  </button>
+</header>
+
+<main class="stage">
+
+  <section class="setup-panel" id="setupPanel" hidden>
+    <div class="setup-inner">
+      <div class="setup-head">
+        <h2>Daftar Kelas</h2>
+        <p>Satu kelas per baris. Tersimpan otomatis di perangkat ini.</p>
+      </div>
+      <textarea id="classInput" spellcheck="false" placeholder="X.A&#10;X.B&#10;X.C&#10;..."></textarea>
+      <div class="setup-foot">
+        <span class="count-pill" id="classCount">0 kelas</span>
+        <div class="setup-actions">
+          <button class="btn-text" id="resetDefault">Pakai daftar contoh</button>
+          <button class="btn-primary" id="saveClasses">Simpan</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="urutan" role="tab" aria-selected="true">
+      <span class="tab-num">01</span>
+      Urutan Tampil
+    </button>
+    <button class="tab" data-tab="pairing" role="tab" aria-selected="false">
+      <span class="tab-num">02</span>
+      Pairing Kelas
+    </button>
+  </nav>
+
+  <!-- URUTAN TAMPIL -->
+  <section class="panel active" id="panel-urutan" role="tabpanel">
+    <div class="panel-head">
+      <div>
+        <h1>Urutan Tampil Lomba</h1>
+        <p class="panel-desc">Undi urutan penampilan setiap kelas secara acak.</p>
+      </div>
+      <button class="btn-draw" id="drawUrutan">
+        <span>Undi Sekarang</span>
+      </button>
+    </div>
+
+    <div class="empty-state" id="urutanEmpty">
+      <div class="empty-icon">✦</div>
+      <p>Belum ada undian. Tekan <strong>Undi Sekarang</strong> untuk memulai.</p>
+    </div>
+
+    <ol class="order-list" id="urutanResult"></ol>
+  </section>
+
+  <!-- PAIRING -->
+  <section class="panel" id="panel-pairing" role="tabpanel" hidden>
+    <div class="panel-head">
+      <div>
+        <h1>Pairing Kelas</h1>
+        <p class="panel-desc">Undi lawan tanding secara acak, dua kelas per babak.</p>
+      </div>
+      <button class="btn-draw" id="drawPairing">
+        <span>Undi Sekarang</span>
+      </button>
+    </div>
+
+    <div class="empty-state" id="pairingEmpty">
+      <div class="empty-icon">✦</div>
+      <p>Belum ada undian. Tekan <strong>Undi Sekarang</strong> untuk memulai.</p>
+    </div>
+
+    <div class="pair-grid" id="pairingResult"></div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <span>Dibuat untuk OSIS — jalankan langsung dari browser, tanpa server.</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
 
